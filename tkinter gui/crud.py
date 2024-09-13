@@ -71,3 +71,32 @@ def display_users():
     else:
         messagebox.showwarning("Selection error", "Please select a user to delete")
 
+root = Tk()
+root.title("Simple CRUD with Tkinter and MySQL")
+
+# GUI Components
+label_name = Label(root, text="Name:")
+label_name.grid(row=0, column=0)
+entry_name = Entry(root)
+entry_name.grid(row=0, column=1)
+
+label_email = Label(root, text="Email:")
+label_email.grid(row=1, column=0)
+entry_email = Entry(root)
+entry_email.grid(row=1, column=1)
+
+add_button = Button(root, text="Add User", command=add_user)
+add_button.grid(row=2, column=0, pady=10)
+
+update_button = Button(root, text="Update User", command=update_user)
+update_button.grid(row=2, column=1)
+
+delete_button = Button(root, text="Delete User", command=delete_user)
+delete_button.grid(row=2, column=2)
+
+# Listbox to display users
+user_list = Listbox(root, width=50)
+user_list.grid(row=3, column=0, columnspan=3)
+display_users()
+
+root.mainloop()
