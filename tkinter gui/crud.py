@@ -27,3 +27,14 @@ def connect_db():
     else:
         messagebox.showwarning("Input error", "Please fill in all fields")
 
+        # Function to read and display all users
+def display_users():
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    rows = cursor.fetchall()
+    user_list.delete(0, END)
+    for row in rows:
+        user_list.insert(END, f"{row[0]} - {row[1]} - {row[2]}")
+    conn.close
+
