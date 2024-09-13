@@ -11,7 +11,8 @@ def connect_db():
         database="danukatest"   
     )
 
- def add_user():
+# Function to insert user into the database
+def add_user():
     name = entry_name.get()
     email = entry_email.get()
     if name and email:
@@ -27,7 +28,7 @@ def connect_db():
     else:
         messagebox.showwarning("Input error", "Please fill in all fields")
 
-        # Function to read and display all users
+# Function to read and display all users
 def display_users():
     conn = connect_db()
     cursor = conn.cursor()
@@ -36,9 +37,10 @@ def display_users():
     user_list.delete(0, END)
     for row in rows:
         user_list.insert(END, f"{row[0]} - {row[1]} - {row[2]}")
-    conn.close
+    conn.close()
 
-    def update_user():
+# Function to update user details
+def update_user():
     selected_user = user_list.curselection()
     if selected_user:
         user_id = user_list.get(selected_user).split(" - ")[0]
@@ -57,7 +59,8 @@ def display_users():
     else:
         messagebox.showwarning("Selection error", "Please select a user to update")
 
-        def delete_user():
+# Function to delete user
+def delete_user():
     selected_user = user_list.curselection()
     if selected_user:
         user_id = user_list.get(selected_user).split(" - ")[0]
@@ -71,6 +74,7 @@ def display_users():
     else:
         messagebox.showwarning("Selection error", "Please select a user to delete")
 
+# Creating the Tkinter window
 root = Tk()
 root.title("Simple CRUD with Tkinter and MySQL")
 
@@ -100,3 +104,4 @@ user_list.grid(row=3, column=0, columnspan=3)
 display_users()
 
 root.mainloop()
+
