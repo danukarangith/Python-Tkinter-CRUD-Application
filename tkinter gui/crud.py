@@ -57,3 +57,17 @@ def display_users():
     else:
         messagebox.showwarning("Selection error", "Please select a user to update")
 
+        def delete_user():
+    selected_user = user_list.curselection()
+    if selected_user:
+        user_id = user_list.get(selected_user).split(" - ")[0]
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM users WHERE id=%s", (user_id,))
+        conn.commit()
+        conn.close()
+        messagebox.showinfo("Success", "User deleted successfully")
+        display_users()
+    else:
+        messagebox.showwarning("Selection error", "Please select a user to delete")
+
