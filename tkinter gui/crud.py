@@ -38,3 +38,22 @@ def display_users():
         user_list.insert(END, f"{row[0]} - {row[1]} - {row[2]}")
     conn.close
 
+    def update_user():
+    selected_user = user_list.curselection()
+    if selected_user:
+        user_id = user_list.get(selected_user).split(" - ")[0]
+        name = entry_name.get()
+        email = entry_email.get()
+        if name and email:
+            conn = connect_db()
+            cursor = conn.cursor()
+            cursor.execute("UPDATE users SET name=%s, email=%s WHERE id=%s", (name, email, user_id))
+            conn.commit()
+            conn.close()
+            messagebox.showinfo("Success", "User updated successfully")
+            display_users()
+        else:
+            messagebox.showwarning("Input error", "Please fill in all fields")
+    else:
+        messagebox.showwarning("Selection error", "Please select a user to update")
+
