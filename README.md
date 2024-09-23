@@ -21,4 +21,5 @@ A simple User Management System built with Python, Tkinter for the GUI, and MySQ
 1. Clone the repository and run:
 
    ```bash
+    git clone https://github.com/danukarangith/Python-Tkinter-Crud-Application.git
    
