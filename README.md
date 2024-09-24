@@ -1,6 +1,6 @@
 # UserManager-Tkinter-MySQL
 
-A simple User Management System built with Python, Tkinter for the GUI, and MySQL as the database. This project implements basic CRUD (Create, Read, Update, Delete) operations to manage users in a database (finetune by open AI ).
+A simple User Management System built with Python, Tkinter for the GUI, and MySQL as the database. This project implements basic CRUD (Create, Read, Update, Delete) operations to manage users in a database ( finetune by open AI ).
 
 ## Features
 
